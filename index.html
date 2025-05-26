@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Labirinto das Cores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      min-height: 100vh;
+      background: #101319;
+      color: #f1eaff;
+      font-family: 'Share Tech Mono', 'Orbitron', monospace, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
+      position: relative;
+      /* Granulado cyberpunk sujo */
+      overflow: hidden;
+    }
+    /* Efeito granulado */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.16'/%3E%3C/svg%3E");
+      opacity: 0.22;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    h1 {
+      z-index: 1;
+      font-family: 'Orbitron', 'Share Tech Mono', monospace;
+      font-size: 2.7rem;
+      color: #43ffe0;
+      text-shadow:
+        0 0 18px #43ffe0,
+        0 0 8px #ff39e6,
+        0 0 12px #39ff14;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      margin-top: 0;
+      background: rgba(20,12,28,0.55);
+      border-radius: 10px;
+      padding: 10px 30px 5px 30px;
+      border-bottom: 2px solid #ff39e6;
+      border-right: 2px solid #39ff14;
+      display: inline-block;
+    }
+    p {
+      z-index: 1;
+      font-size: 1.1em;
+      color: #b8ffe9;
+      text-shadow: 0 0 8px #43ffe0, 0 0 1px #000, 0 0 3px #ff39e6;
+      margin-bottom: 36px;
+      max-width: 650px;
+      text-align: center;
+      background: rgba(0,0,0,0.32);
+      border-radius: 8px;
+      padding: 5px 20px;
+      border-left: 2px solid #39ff14;
+    }
+    .cyber-box {
+      z-index: 1;
+      background: rgba(10, 20, 18, 0.93);
+      border: 2px solid #43ffe0;
+      border-radius: 15px;
+      box-shadow: 0 0 24px 4px #ff39e670, 0 0 18px #43ffe099, 0 0 12px #39ff1460;
+      padding: 32px 24px 30px 24px;
+      margin-top: 22px;
+      min-width: 320px;
+      max-width: 90vw;
+      width: 400px;
+      text-align: center;
+      border-bottom: 2px solid #ff39e6;
+      border-right: 2px solid #39ff14;
+    }
+    .cyber-btn {
+      font-family: 'Orbitron', 'Share Tech Mono', monospace;
+      font-size: 1.2em;
+      color: #fff;
+      background: linear-gradient(90deg, #43ffe0 0%, #ff39e6 60%, #39ff14 100%);
+      border: none;
+      border-radius: 8px;
+      padding: 9px 32px;
+      box-shadow: 0 0 18px #ff39e6, 0 0 12px #43ffe0, 0 0 6px #39ff14;
+      cursor: pointer;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+      text-shadow: 0 0 8px #101319;
+      margin-bottom: 12px;
+      margin-top: 10px;
+      transition: box-shadow 0.2s, background 0.2s;
+    }
+    .cyber-btn:hover {
+      background: linear-gradient(270deg, #39ff14 0%, #ff39e6 50%, #43ffe0 100%);
+      box-shadow: 0 0 32px #43ffe0, 0 0 18px #ff39e6, 0 0 15px #39ff14;
+    }
+    /* Fios neon "soltos" */
+    .neon-wire {
+      position: absolute;
+      z-index: 0;
+      width: 80vw;
+      left: 10vw;
+      height: 0;
+      border-top: 2px dashed #ff39e6;
+      filter: blur(0.4px) brightness(1.7);
+      opacity: 0.38;
+    }
+    .neon-wire.nw1 { top: 120px; border-color: #ff39e6;}
+    .neon-wire.nw2 { top: 240px; border-color: #43ffe0;}
+    .neon-wire.nw3 { top: 380px; border-color: #39ff14;}
+    .neon-wire.nw4 { top: 500px; border-color: #43ffe0;}
+    .neon-wire.nw5 { top: 600px; border-color: #ff39e6;}
+    @media (max-width: 600px) {
+      .cyber-box { max-width: 99vw; width: 96vw; }
+      button { font-size: 1em; }
+      h1 { font-size: 1.5rem; padding: 6px 10px 4px 10px;}
+      .neon-wire { width: 98vw; left: 1vw;}
+    }
+  </style>
+</head>
+<body>
+  <div class="neon-wire nw1"></div>
+  <div class="neon-wire nw2"></div>
+  <div class="neon-wire nw3"></div>
+  <div class="neon-wire nw4"></div>
+  <div class="neon-wire nw5"></div>
+  <h1>Labirinto das Cores</h1>
+  <p>
+    Visual cyberpunk decadente: azul neon, rosa neon, verde neon, fundo escuro e "sujo".<br>
+    Modifique este arquivo para adicionar o conteúdo que quiser.
+  </p>
+  <div class="cyber-box">
+    <p>
+      Esta é uma caixa com estilo de cidade cyberpunk largada.<br>
+      Você pode adicionar imagens, botões, textos ou o que quiser aqui.
+    </p>
+    <button class="cyber-btn">Botão Neon</button>
+  </div>
+</body>
+</html>
