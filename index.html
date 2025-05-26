@@ -18,12 +18,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 60px;
+      padding-top: 32px;
       position: relative;
-      /* Granulado cyberpunk sujo */
-      overflow: hidden;
+      overflow-x: hidden;
     }
-    /* Efeito granulado */
     body::before {
       content: "";
       position: fixed;
@@ -37,115 +35,208 @@
       mix-blend-mode: screen;
       pointer-events: none;
     }
-    h1 {
+    .container {
       z-index: 1;
+      background: rgba(10, 20, 18, 0.97);
+      border: 2px solid #43ffe0;
+      border-radius: 16px;
+      box-shadow: 0 0 32px 8px #ff39e670, 0 0 22px #43ffe099, 0 0 16px #39ff1460;
+      max-width: 900px;
+      width: 96vw;
+      margin: 28px auto 38px auto;
+      padding: 38px 26px 38px 26px;
+      position: relative;
+      border-bottom: 2px solid #ff39e6;
+      border-right: 2px solid #39ff14;
+    }
+    .capa-img {
+      display: block;
+      margin: 0 auto 16px auto;
+      max-width: 360px;
+      width: 100%;
+      border-radius: 12px 28px 12px 28px;
+      border: 3px solid #39ff14;
+      box-shadow: 0 0 32px #43ffe0, 0 0 12px #ff39e6, 0 0 9px #39ff14;
+      background: #181f24;
+      transition: box-shadow 0.2s;
+    }
+    .capa-img:hover {
+      box-shadow: 0 0 44px #ff39e6, 0 0 22px #43ffe0, 0 0 15px #39ff14;
+      border-color: #ff39e6;
+    }
+    h1 {
       font-family: 'Orbitron', 'Share Tech Mono', monospace;
-      font-size: 2.7rem;
+      font-size: 2.3rem;
       color: #43ffe0;
       text-shadow:
-        0 0 18px #43ffe0,
-        0 0 8px #ff39e6,
+        0 0 14px #43ffe0,
+        0 0 6px #ff39e6,
         0 0 12px #39ff14;
       letter-spacing: 2px;
-      margin-bottom: 18px;
+      margin-bottom: 8px;
       margin-top: 0;
-      background: rgba(20,12,28,0.55);
-      border-radius: 10px;
-      padding: 10px 30px 5px 30px;
+      padding: 0 2px;
       border-bottom: 2px solid #ff39e6;
       border-right: 2px solid #39ff14;
       display: inline-block;
+      background: rgba(20,12,28,0.45);
+      border-radius: 8px 12px 8px 12px;
     }
-    p {
-      z-index: 1;
-      font-size: 1.1em;
-      color: #b8ffe9;
-      text-shadow: 0 0 8px #43ffe0, 0 0 1px #000, 0 0 3px #ff39e6;
-      margin-bottom: 36px;
-      max-width: 650px;
-      text-align: center;
-      background: rgba(0,0,0,0.32);
-      border-radius: 8px;
-      padding: 5px 20px;
-      border-left: 2px solid #39ff14;
-    }
-    .cyber-box {
-      z-index: 1;
-      background: rgba(10, 20, 18, 0.93);
-      border: 2px solid #43ffe0;
-      border-radius: 15px;
-      box-shadow: 0 0 24px 4px #ff39e670, 0 0 18px #43ffe099, 0 0 12px #39ff1460;
-      padding: 32px 24px 30px 24px;
-      margin-top: 22px;
-      min-width: 320px;
-      max-width: 90vw;
-      width: 400px;
-      text-align: center;
-      border-bottom: 2px solid #ff39e6;
-      border-right: 2px solid #39ff14;
-    }
-    .cyber-btn {
+    h2, h3 {
+      color: #ff39e6;
+      margin-top: 32px;
+      text-shadow: 0 0 10px #ff39e6, 0 0 5px #43ffe0;
       font-family: 'Orbitron', 'Share Tech Mono', monospace;
-      font-size: 1.2em;
-      color: #fff;
-      background: linear-gradient(90deg, #43ffe0 0%, #ff39e6 60%, #39ff14 100%);
-      border: none;
-      border-radius: 8px;
-      padding: 9px 32px;
-      box-shadow: 0 0 18px #ff39e6, 0 0 12px #43ffe0, 0 0 6px #39ff14;
-      cursor: pointer;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
+    }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.1rem; color: #43ffe0; margin-top: 20px; }
+    p, ul, ol {
+      color: #b8ffe9;
+      font-size: 1.06em;
+      text-shadow: 0 0 8px #43ffe0, 0 0 1px #000, 0 0 1px #ff39e6;
+      margin-bottom: 1.3em;
+      background: rgba(0,0,0,0.10);
+      border-radius: 6px;
+      padding: 3px 10px 3px 10px;
+    }
+    .system {
+      color: #39ff14;
+      background: rgba(10, 30, 12, 0.17);
+      border-left: 3px solid #39ff14;
+      margin-bottom: 22px;
+      padding: 2px 10px 2px 15px;
+      font-size: 1.02em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      background: rgba(20, 16, 27, 0.85);
+      font-size: 1em;
+      border-radius: 7px;
+      overflow: hidden;
+      box-shadow: 0 0 12px #43ffe079;
+    }
+    th, td {
+      border: 1.5px solid #43ffe0;
+      padding: 10px 7px;
+      text-align: left;
+    }
+    th {
+      background: #232039;
+      color: #43ffe0;
       font-weight: bold;
-      text-shadow: 0 0 8px #101319;
-      margin-bottom: 12px;
-      margin-top: 10px;
-      transition: box-shadow 0.2s, background 0.2s;
+      text-shadow: 0 0 6px #43ffe0;
     }
-    .cyber-btn:hover {
-      background: linear-gradient(270deg, #39ff14 0%, #ff39e6 50%, #43ffe0 100%);
-      box-shadow: 0 0 32px #43ffe0, 0 0 18px #ff39e6, 0 0 15px #39ff14;
-    }
-    /* Fios neon "soltos" */
-    .neon-wire {
-      position: absolute;
-      z-index: 0;
-      width: 80vw;
-      left: 10vw;
-      height: 0;
-      border-top: 2px dashed #ff39e6;
-      filter: blur(0.4px) brightness(1.7);
-      opacity: 0.38;
-    }
-    .neon-wire.nw1 { top: 120px; border-color: #ff39e6;}
-    .neon-wire.nw2 { top: 240px; border-color: #43ffe0;}
-    .neon-wire.nw3 { top: 380px; border-color: #39ff14;}
-    .neon-wire.nw4 { top: 500px; border-color: #43ffe0;}
-    .neon-wire.nw5 { top: 600px; border-color: #ff39e6;}
-    @media (max-width: 600px) {
-      .cyber-box { max-width: 99vw; width: 96vw; }
-      button { font-size: 1em; }
-      h1 { font-size: 1.5rem; padding: 6px 10px 4px 10px;}
-      .neon-wire { width: 98vw; left: 1vw;}
+    tr:nth-child(even) { background: #171420; }
+    tr:nth-child(odd) { background: #191b24; }
+    td:nth-child(1) { color: #ff39e6; font-weight: bold; }
+    @media (max-width: 700px) {
+      .container { padding: 11px 2vw; }
+      table, th, td { font-size: 0.96em; }
+      h1 { font-size: 1.3rem; }
+      .capa-img { max-width: 98vw; }
     }
   </style>
 </head>
 <body>
-  <div class="neon-wire nw1"></div>
-  <div class="neon-wire nw2"></div>
-  <div class="neon-wire nw3"></div>
-  <div class="neon-wire nw4"></div>
-  <div class="neon-wire nw5"></div>
-  <h1>Labirinto das Cores</h1>
-  <p>
-    Visual cyberpunk decadente: azul neon, rosa neon, verde neon, fundo escuro e "sujo".<br>
-    Modifique este arquivo para adicionar o conteúdo que quiser.
-  </p>
-  <div class="cyber-box">
+  <div class="container">
+    <img src="Labirinto2.png" alt="Labirinto das Cores - Capa" class="capa-img">
+    <h1>O Labirinto das Cores Proibidas</h1>
+    <h2>Introdução</h2>
     <p>
-      Esta é uma caixa com estilo de cidade cyberpunk largada.<br>
-      Você pode adicionar imagens, botões, textos ou o que quiser aqui.
+      Em um futuro distópico, onde a cidade foi tomada por megacorporações que apagaram qualquer vestígio de arte, um grupo de jovens artistas descobre uma lenda urbana: existe um labirinto escondido sob a cidade, onde sobreviveram os últimos vestígios dos grafites originais que contavam a história da resistência artística. Sua missão? Navegar por esse labirinto cyberpunk, desvendar os enigmas e recuperar a imagem de um grafite icônico. Só assim poderão trazer de volta as cores proibidas para sua cidade.
     </p>
-    <button class="cyber-btn">Botão Neon</button>
+    <p>
+      Cada guilda (grupo) representa uma célula da resistência artística. Vocês devem trabalhar juntos, mas também competem para ver quem recupera a versão mais fiel do grafite perdido.
+    </p>
+    <p>
+      <strong>Materiais disponíveis:</strong> folhas A4, lápis de cor, pincel, tintas vermelha, azul e amarela. Recursos escassos, o que faz cada decisão ser crucial.
+    </p>
+    <h2>Sistema de Dados (D20)</h2>
+    <div class="system">
+      <strong>16-20:</strong> Visão completa do grafite original. O grupo pode reproduzi-lo como desejar.<br>
+      <strong>11-15:</strong> Visão parcial. Conseguem detalhes importantes, mas alguns trechos ficam vagos.<br>
+      <strong>6-10:</strong> O grafite está bastante desgastado. Alguns detalhes são difíceis de interpretar.<br>
+      <strong>2-5:</strong> O grafite praticamente sumiu. Muitos elementos ficam à imaginação do grupo.<br>
+      <strong>1 (Erro Crítico):</strong> O grupo não tem nenhuma referência visual e ainda sofre restrição de materiais (ex.: só podem usar lápis ou só pincel).
+    </div>
+    <h2>Desafio Final</h2>
+    <p>
+      Cada guilda fará uma releitura de um grafite famoso. A proposta prática é a reprodução criativa a partir das pistas que encontraram no labirinto.
+    </p>
+    <h2>12 Perguntas – Desafio do Labirinto</h2>
+    <p>
+      Para avançar no labirinto, as guildas precisam resolver 12 enigmas de múltipla escolha sobre grafite e elementos da composição visual.
+    </p>
+    <table>
+      <tr>
+        <th>Nº</th>
+        <th>Pergunta</th>
+        <th>Alternativas</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>O que é grafite na linguagem artística?</td>
+        <td>A) Pichação • B) Pintura mural legalizada • C) Expressão visual de intervenção urbana • D) Rabisco sem sentido</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>O grafite surgiu como forma de:</td>
+        <td>A) Protesto e expressão social • B) Marketing • C) Pintura religiosa • D) Pintura clássica</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Qual elemento básico organiza os espaços em uma obra?</td>
+        <td>A) Volume • B) Plano • C) Composição • D) Tinta</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Cores primárias são:</td>
+        <td>A) Verde, azul, amarelo • B) Azul, vermelho, amarelo • C) Preto, branco, cinza • D) Laranja, verde, roxo</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Uma linha que expressa movimento no grafite é chamada de:</td>
+        <td>A) Linha rígida • B) Linha orgânica • C) Linha pontilhada • D) Linha estática</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>O que significa contraste na composição?</td>
+        <td>A) Igualdade de tons • B) Diferença entre elementos • C) Suavidade das linhas • D) Desenho monocromático</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Quando usamos formas que remetem ao mundo real, chamamos de:</td>
+        <td>A) Abstratas • B) Figurativas • C) Simbólicas • D) Aleatórias</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>O que é a técnica de stêncil no grafite?</td>
+        <td>A) Pintar com pincel • B) Usar rolo • C) Usar moldes vazados • D) Pichar letras</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>No grafite, usar perspectiva serve para:</td>
+        <td>A) Diminuir o desenho • B) Organizar textos • C) Criar profundidade • D) Fazer letras grandes</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>A mistura de vermelho e azul resulta em:</td>
+        <td>A) Verde • B) Roxo • C) Marrom • D) Laranja</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Quando um grafite tem várias camadas sobrepostas, isso se chama:</td>
+        <td>A) Monocromia • B) Overlayer • C) Overpainting • D) Estamparia</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Uma característica do grafite é:</td>
+        <td>A) Ser efêmero e interativo • B) Ser permanente • C) Nunca mudar • D) Ter assinatura digital</td>
+      </tr>
+    </table>
   </div>
 </body>
 </html>
