@@ -1,4 +1,4 @@
-![Capa do Labirinto](labirinto.jpg)
+![Capa do Labirinto](Labirinto.png)
 # 🎨🕹️ O Labirinto das Cores
 
 Bem-vindo ao Labirinto das Cores Proibidas, uma aventura de RPG educacional, desenvolvida para alunos do 9º ano, que une os conceitos de grafite, artes urbanas e elementos da composição visual em uma dinâmica divertida, criativa e colaborativa.  
