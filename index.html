@@ -5,35 +5,18 @@
   <title>Labirinto das Cores</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
+    html, body { height: 100%; margin: 0; padding: 0; }
     body {
-      min-height: 100vh;
-      background: #101319;
-      color: #f1eaff;
+      min-height: 100vh; background: #101319; color: #f1eaff;
       font-family: 'Share Tech Mono', 'Orbitron', monospace, Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 32px;
-      position: relative;
-      overflow-x: hidden;
+      display: flex; flex-direction: column; align-items: center;
+      padding-top: 32px; position: relative; overflow-x: hidden;
     }
     body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
+      content: ""; position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0;
       pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.16'/%3E%3C/svg%3E");
-      opacity: 0.22;
-      mix-blend-mode: screen;
-      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' seed='8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E");
+      opacity: 0.22; mix-blend-mode: screen; pointer-events: none;
     }
     .container {
       z-index: 1;
@@ -50,10 +33,8 @@
       border-right: 2px solid #39ff14;
     }
     .capa-img {
-      display: block;
-      margin: 0 auto 16px auto;
-      max-width: 360px;
-      width: 100%;
+      display: block; margin: 0 auto 16px auto;
+      max-width: 360px; width: 100%;
       border-radius: 12px 28px 12px 28px;
       border: 3px solid #39ff14;
       box-shadow: 0 0 32px #43ffe0, 0 0 12px #ff39e6, 0 0 9px #39ff14;
@@ -66,25 +47,15 @@
     }
     h1 {
       font-family: 'Orbitron', 'Share Tech Mono', monospace;
-      font-size: 2.3rem;
-      color: #43ffe0;
-      text-shadow:
-        0 0 14px #43ffe0,
-        0 0 6px #ff39e6,
-        0 0 12px #39ff14;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-      margin-top: 0;
-      padding: 0 2px;
-      border-bottom: 2px solid #ff39e6;
-      border-right: 2px solid #39ff14;
-      display: inline-block;
-      background: rgba(20,12,28,0.45);
+      font-size: 2.3rem; color: #43ffe0;
+      text-shadow: 0 0 14px #43ffe0, 0 0 6px #ff39e6, 0 0 12px #39ff14;
+      letter-spacing: 2px; margin-bottom: 8px; margin-top: 0; padding: 0 2px;
+      border-bottom: 2px solid #ff39e6; border-right: 2px solid #39ff14;
+      display: inline-block; background: rgba(20,12,28,0.45);
       border-radius: 8px 12px 8px 12px;
     }
     h2, h3 {
-      color: #ff39e6;
-      margin-top: 32px;
+      color: #ff39e6; margin-top: 32px;
       text-shadow: 0 0 10px #ff39e6, 0 0 5px #43ffe0;
       font-family: 'Orbitron', 'Share Tech Mono', monospace;
       letter-spacing: 1.2px;
@@ -92,51 +63,157 @@
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.1rem; color: #43ffe0; margin-top: 20px; }
     p, ul, ol {
-      color: #b8ffe9;
-      font-size: 1.06em;
+      color: #b8ffe9; font-size: 1.06em;
       text-shadow: 0 0 8px #43ffe0, 0 0 1px #000, 0 0 1px #ff39e6;
-      margin-bottom: 1.3em;
-      background: rgba(0,0,0,0.10);
-      border-radius: 6px;
-      padding: 3px 10px 3px 10px;
+      margin-bottom: 1.3em; background: rgba(0,0,0,0.10);
+      border-radius: 6px; padding: 3px 10px 3px 10px;
     }
     .system {
-      color: #39ff14;
-      background: rgba(10, 30, 12, 0.17);
-      border-left: 3px solid #39ff14;
-      margin-bottom: 22px;
-      padding: 2px 10px 2px 15px;
-      font-size: 1.02em;
+      color: #39ff14; background: rgba(10, 30, 12, 0.17);
+      border-left: 3px solid #39ff14; margin-bottom: 22px;
+      padding: 2px 10px 2px 15px; font-size: 1.02em;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      background: rgba(20, 16, 27, 0.85);
-      font-size: 1em;
-      border-radius: 7px;
-      overflow: hidden;
-      box-shadow: 0 0 12px #43ffe079;
+    .sala-btn {
+      display: flex; align-items: center; justify-content: flex-start;
+      border: 2.5px solid #43ffe0; background: #161a22;
+      color: #43ffe0; font-family: 'Orbitron', 'Share Tech Mono', monospace;
+      font-size: 1.1rem; border-radius: 10px; padding: 14px 18px; margin: 20px 0 0 0;
+      cursor: pointer; box-shadow: 0 0 12px #43ffe090;
+      gap: 14px; width: 100%; max-width: 500px; transition: box-shadow 0.2s, border 0.2s;
     }
-    th, td {
-      border: 1.5px solid #43ffe0;
-      padding: 10px 7px;
-      text-align: left;
-    }
-    th {
+    .sala-btn:hover, .sala-btn:focus { box-shadow: 0 0 28px #ff39e6c0; border-color: #ff39e6; }
+    .sala-btn[disabled], .sala-btn.disabled { opacity: 0.45; pointer-events: none; }
+    .sala-enigma {
       background: #232039;
-      color: #43ffe0;
-      font-weight: bold;
-      text-shadow: 0 0 6px #43ffe0;
+      border: 2px solid #ff39e6;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 10px 0 16px 0;
+      color: #b8ffe9;
+      box-shadow: 0 0 12px #43ffe090;
+      font-size: 1.08em;
+      max-width: 500px;
     }
-    tr:nth-child(even) { background: #171420; }
-    tr:nth-child(odd) { background: #191b24; }
-    td:nth-child(1) { color: #ff39e6; font-weight: bold; }
+    .sala-conteudo {
+      display: none;
+      background: rgba(28, 16, 36, 0.94);
+      border: 2px solid #43ffe0;
+      border-radius: 14px;
+      box-shadow: 0 0 18px #43ffe0b5, 0 0 8px #ff39e6b5;
+      margin-bottom: 30px;
+      margin-top: 20px;
+      padding: 22px 18px 16px 18px;
+      position: relative;
+      max-width: 700px;
+      width: 100%;
+      animation: fadeIn 0.25s;
+    }
+    .sala-conteudo.active { display: block; }
+    .quiz-pergunta, .quiz-progresso, .resultado-final { max-width: 520px; margin-left: auto; margin-right: auto; }
+    .quiz-pergunta { margin-top: 14px; }
+    .enigma-input-bloco {
+      margin-top: 12px; display: flex; gap: 10px; align-items: center;
+    }
+    .enigma-input-bloco input {
+      padding: 7px 10px; border-radius: 5px; border: 1.5px solid #43ffe0;
+      font-size: 1.08em; font-family: inherit; background: #161a22; color: #b8ffe9;
+      outline: none; width: 140px; text-align: center;
+    }
+    .enigma-input-bloco button {
+      padding: 8px 16px; border-radius: 5px; border: none; outline: none;
+      background: #43ffe0; color: #232039; font-weight: bold; font-size: 1em; cursor: pointer;
+      font-family: inherit; transition: background 0.2s;
+    }
+    .enigma-input-bloco button:disabled { background: #43ffe099; color: #23203999; cursor: not-allowed; }
+    .enigma-feedback { margin-top: 6px; color: #ff3939; font-size: 1em; min-height: 1.5em; }
+    .enigma-sucesso { color: #39ff14; font-size: 1.1em; font-weight: bold;}
+    .enigma-pista { color: #ffeb39; font-size: 1em; margin-top: 5px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(16px);} to { opacity: 1; transform: translateY(0);} }
     @media (max-width: 700px) {
       .container { padding: 11px 2vw; }
-      table, th, td { font-size: 0.96em; }
       h1 { font-size: 1.3rem; }
       .capa-img { max-width: 98vw; }
+      .sala-btn { padding: 10px 9px; font-size: 0.99em; }
+      .sala-conteudo { padding: 10px 7px; }
+    }
+    /* Quiz clickable */
+    .quiz-pergunta {
+      background: #161a22;
+      border-left: 4px solid #43ffe0;
+      margin-bottom: 18px;
+      padding: 8px 12px 8px 14px;
+      border-radius: 6px;
+      box-shadow: 0 0 8px #43ffe0a0;
+      font-size: 1.06em;
+      display: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .quiz-pergunta.active {
+      display: block;
+      animation: fadeIn 0.2s;
+    }
+    .quiz-pergunta strong { color: #ff39e6; }
+    .quiz-alternativas {
+      margin: 7px 0 0 1.3em;
+      padding-left: 0;
+      list-style: none;
+    }
+    .quiz-alternativas li {
+      margin-bottom: 2px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: rgba(67,255,224,0.06);
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      cursor: pointer;
+      border-left: 4px solid transparent;
+      color: #b8ffe9;
+      user-select: none;
+    }
+    .quiz-alternativas li:hover {
+      background: rgba(67,255,224,0.15);
+    }
+    .quiz-alternativas li.selected {
+      background: #3e2649;
+      font-weight: bold;
+      color: #ff39e6;
+      cursor: default;
+    }
+    .quiz-alternativas li.certa {
+      color: #39ff14;
+      border-left: 4px solid #39ff14;
+      background: rgba(57,255,20,0.12);
+      font-weight: bold;
+    }
+    .quiz-alternativas li.errada {
+      color: #ff3939;
+      border-left: 4px solid #ff3939;
+      background: rgba(255,57,57,0.08);
+    }
+    .quiz-progresso {
+      font-size: 1em;
+      font-family: 'Share Tech Mono', monospace;
+      text-align: right;
+      color: #43ffe0;
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+    .resultado-final {
+      display: none;
+      background: #181c25;
+      border: 2px solid #39ff14;
+      border-radius: 10px;
+      box-shadow: 0 0 16px #39ff1499, 0 0 12px #43ffe0a8;
+      margin: 32px auto 0 auto;
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 1.19em;
+      color: #39ff14;
+      font-family: 'Orbitron', 'Share Tech Mono', monospace;
+      max-width: 500px;
+    }
+    .resultado-final strong {
+      color: #ff39e6;
+      font-size: 1.4em;
     }
   </style>
 </head>
@@ -146,7 +223,7 @@
     <h1>O Labirinto das Cores Proibidas</h1>
     <h2>Introdução</h2>
     <p>
-      Em um futuro distópico, onde a cidade foi tomada por megacorporações que apagaram qualquer vestígio de arte, um grupo de jovens artistas descobre uma lenda urbana: existe um labirinto escondido sob a cidade, onde sobreviveram os últimos vestígios dos grafites originais que contavam a história da resistência artística. Sua missão? Navegar por esse labirinto cyberpunk, desvendar os enigmas e recuperar a imagem de um grafite icônico. Só assim poderão trazer de volta as cores proibidas para sua cidade.
+      Em um futuro distópico, onde a cidade foi tomada por megacorporações que apagaram qualquer vestígio de arte, um grupo de jovens artistas descobre uma lenda urbana: existe um labirinto escondido sob a cidade, guardando os segredos das cores proibidas e do grafite original. Quem conseguir decifrar seus enigmas poderá trazer a arte de volta às ruas.
     </p>
     <p>
       Cada guilda (grupo) representa uma célula da resistência artística. Vocês devem trabalhar juntos, mas também competem para ver quem recupera a versão mais fiel do grafite perdido.
@@ -166,77 +243,498 @@
     <p>
       Cada guilda fará uma releitura de um grafite famoso. A proposta prática é a reprodução criativa a partir das pistas que encontraram no labirinto.
     </p>
-    <h2>12 Perguntas – Desafio do Labirinto</h2>
-    <p>
-      Para avançar no labirinto, as guildas precisam resolver 12 enigmas de múltipla escolha sobre grafite e elementos da composição visual.
-    </p>
-    <table>
-      <tr>
-        <th>Nº</th>
-        <th>Pergunta</th>
-        <th>Alternativas</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>O que é grafite na linguagem artística?</td>
-        <td>A) Pichação • B) Pintura mural legalizada • C) Expressão visual de intervenção urbana • D) Rabisco sem sentido</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>O grafite surgiu como forma de:</td>
-        <td>A) Protesto e expressão social • B) Marketing • C) Pintura religiosa • D) Pintura clássica</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Qual elemento básico organiza os espaços em uma obra?</td>
-        <td>A) Volume • B) Plano • C) Composição • D) Tinta</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Cores primárias são:</td>
-        <td>A) Verde, azul, amarelo • B) Azul, vermelho, amarelo • C) Preto, branco, cinza • D) Laranja, verde, roxo</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>Uma linha que expressa movimento no grafite é chamada de:</td>
-        <td>A) Linha rígida • B) Linha orgânica • C) Linha pontilhada • D) Linha estática</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>O que significa contraste na composição?</td>
-        <td>A) Igualdade de tons • B) Diferença entre elementos • C) Suavidade das linhas • D) Desenho monocromático</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>Quando usamos formas que remetem ao mundo real, chamamos de:</td>
-        <td>A) Abstratas • B) Figurativas • C) Simbólicas • D) Aleatórias</td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>O que é a técnica de stêncil no grafite?</td>
-        <td>A) Pintar com pincel • B) Usar rolo • C) Usar moldes vazados • D) Pichar letras</td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>No grafite, usar perspectiva serve para:</td>
-        <td>A) Diminuir o desenho • B) Organizar textos • C) Criar profundidade • D) Fazer letras grandes</td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>A mistura de vermelho e azul resulta em:</td>
-        <td>A) Verde • B) Roxo • C) Marrom • D) Laranja</td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td>Quando um grafite tem várias camadas sobrepostas, isso se chama:</td>
-        <td>A) Monocromia • B) Overlayer • C) Overpainting • D) Estamparia</td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>Uma característica do grafite é:</td>
-        <td>A) Ser efêmero e interativo • B) Ser permanente • C) Nunca mudar • D) Ter assinatura digital</td>
-      </tr>
-    </table>
+
+    <!-- Botões de Salas -->
+    <button class="sala-btn" id="btn-sala1"><span>🔐 Sala 1</span> – O Santuário das Cores</button>
+    <button class="sala-btn" id="btn-sala2" disabled><span>🔐 Sala 2</span> – A Câmara dos Elementos Visuais</button>
+    <button class="sala-btn" id="btn-sala3" disabled><span>🔐 Sala 3</span> – O Cofre do Grafite</button>
+    
+    <!-- Sala 1 -->
+    <div class="sala-conteudo" id="sala1-conteudo">
+      <div class="sala-enigma" id="enigma-sala1">
+        <strong>🎨 Enigma da Mistura Perfeita</strong><br>
+        "Somos três irmãs essenciais. Separadas, cada uma brilha com sua própria identidade. Juntas, podemos criar quase tudo, até mesmo nos tornarmos escuridão quando todas nos abraçamos. Quem somos nós?"
+        <div class="enigma-input-bloco">
+          <input id="input-enigma1" type="text" placeholder="Digite a resposta...">
+          <button id="btn-enigma1">Destravar</button>
+        </div>
+        <div class="enigma-feedback" id="feedback-enigma1"></div>
+      </div>
+      <div id="sala1-conteudo-real" style="display:none;">
+        <h3>🎨 Conteúdo: A Magia das Cores</h3>
+        <p>
+          Na arte, as cores são mais do que beleza — elas são linguagem, emoção e significado.
+        </p>
+        <h4>🔺 Cores Primárias (Modelo Subtrativo - Pigmento)</h4>
+        <ul>
+          <li>Ciano</li>
+          <li>Magenta</li>
+          <li>Amarelo</li>
+        </ul>
+        <p>💡 Estas são cores que não podem ser criadas pela mistura de outras cores, mas a partir delas criamos todas as outras.</p>
+        <h4>🔻 Cores Secundárias</h4>
+        <table class="tabela-cores">
+          <tr>
+            <th>Cor Primária 1</th>
+            <th>Cor Primária 2</th>
+            <th>Resultado</th>
+          </tr>
+          <tr>
+            <td>Ciano</td><td>Magenta</td><td>Azul</td>
+          </tr>
+          <tr>
+            <td>Ciano</td><td>Amarelo</td><td>Verde</td>
+          </tr>
+          <tr>
+            <td>Magenta</td><td>Amarelo</td><td>Vermelho</td>
+          </tr>
+        </table>
+        <h4>⚫ Cores Neutras</h4>
+        <ul>
+          <li>Mistura das três cores primárias: <strong>Preto</strong> (ou um tom muito escuro)</li>
+          <li>Branco é ausência de pigmento (em pintura, representado pela própria folha)</li>
+        </ul>
+        <h4>🌈 Cores Terciárias</h4>
+        <p>Surgem da mistura de uma primária com uma secundária vizinha.</p>
+        <h4>🧠 Resumo Visual das Cores</h4>
+        <pre style="background:#181c25;padding:7px 14px;border-radius:6px;color:#43ffe0;">[Ciano] + [Magenta] = Azul  
+[Ciano] + [Amarelo] = Verde  
+[Magenta] + [Amarelo] = Vermelho</pre>
+        <p>💡 <strong>Importância das Cores na Arte Urbana:</strong><br>
+        No grafite, a escolha das cores impacta diretamente na visibilidade, expressividade e leitura da obra.</p>
+        <div id="quiz-sala1"></div>
+      </div>
+    </div>
+    <!-- Sala 2 -->
+    <div class="sala-conteudo" id="sala2-conteudo">
+      <div class="sala-enigma" id="enigma-sala2">
+        <strong>🖼️ O Enigma da Obra Invisível</strong><br>
+        "Sou invisível, mas desenhei tudo o que você vê. Posso ser reta, curva, quebrada ou contínua. Sou o início de qualquer traço, sem mim não há forma, não há arte. Quem sou eu?"
+        <div class="enigma-input-bloco">
+          <input id="input-enigma2" type="text" placeholder="Digite a resposta...">
+          <button id="btn-enigma2">Destravar</button>
+        </div>
+        <div class="enigma-feedback" id="feedback-enigma2"></div>
+      </div>
+      <div id="sala2-conteudo-real" style="display:none;">
+        <h3>🎨 Conteúdo: Elementos da Composição Visual</h3>
+        <p>
+          Quando você olha para qualquer obra de arte, está observando uma combinação de elementos básicos da linguagem visual. Eles são o alfabeto da imagem.
+        </p>
+        <h4>🔸 Os 7 Elementos Visuais</h4>
+        <table class="tabela-elementos">
+          <tr>
+            <th>Elemento</th>
+            <th>Descrição</th>
+          </tr>
+          <tr>
+            <td>Ponto</td>
+            <td>A menor unidade de comunicação visual.</td>
+          </tr>
+          <tr>
+            <td>Linha</td>
+            <td>Sucessão de pontos. Define contornos, direciona olhares, gera movimento.</td>
+          </tr>
+          <tr>
+            <td>Forma</td>
+            <td>Área delimitada. Pode ser geométrica (quadrado, círculo) ou orgânica (nuvens, folhas).</td>
+          </tr>
+          <tr>
+            <td>Cor</td>
+            <td>Emoção, destaque, contraste. Trabalha harmonia e impacto visual.</td>
+          </tr>
+          <tr>
+            <td>Textura</td>
+            <td>Aparência tátil (áspero, liso, rugoso), mesmo em superfícies planas.</td>
+          </tr>
+          <tr>
+            <td>Luz e Sombra</td>
+            <td>Cria volume, profundidade, realismo e dramaticidade.</td>
+          </tr>
+          <tr>
+            <td>Volume e Espaço</td>
+            <td>Sensação de tridimensionalidade, profundidade ou vazio.</td>
+          </tr>
+        </table>
+        <p>💡 <strong>Por que entender isso?</strong><br>
+        No grafite e em qualquer arte urbana, esses elementos ajudam a organizar a imagem, criar impacto visual e transmitir mensagens.</p>
+        <div id="quiz-sala2"></div>
+      </div>
+    </div>
+    <!-- Sala 3 -->
+    <div class="sala-conteudo" id="sala3-conteudo">
+      <div class="sala-enigma" id="enigma-sala3">
+        <strong>🎨 Enigma do Muro Escondido</strong><br>
+        "Nasci nas ruas. Minha voz não é som, mas cor. Falo através dos muros, conto histórias e grito revoluções. Alguns me rejeitam, outros me chamam de arte. Quem sou eu?"
+        <div class="enigma-input-bloco">
+          <input id="input-enigma3" type="text" placeholder="Digite a resposta...">
+          <button id="btn-enigma3">Destravar</button>
+        </div>
+        <div class="enigma-feedback" id="feedback-enigma3"></div>
+      </div>
+      <div id="sala3-conteudo-real" style="display:none;">
+        <h3>🧠 Conteúdo: O que é o Grafite?</h3>
+        <ul>
+          <li><strong>Origem:</strong> Surgiu nas décadas de 1970 e 1980 nos EUA, principalmente em Nova York, como expressão de minorias, resistência e arte urbana.</li>
+        </ul>
+        <h4>Diferença entre Pichação e Grafite:</h4>
+        <ul>
+          <li><strong>Pichação:</strong> Letra simples, normalmente ilegal, muitas vezes apenas nome ou código.</li>
+          <li><strong>Grafite:</strong> Arte visual, com preocupação estética, formas, cores e mensagem.</li>
+        </ul>
+        <h4>Função:</h4>
+        <ul>
+          <li>Expressar opinião, denunciar problemas sociais, embelezar espaços, comunicar ideias e ocupar espaços urbanos.</li>
+        </ul>
+        <h4>🎨 Tipos de Grafite</h4>
+        <ul>
+          <li><strong>Tag:</strong> Assinatura do artista.</li>
+          <li><strong>Throw-up:</strong> Letras arredondadas e simples, feitas rapidamente.</li>
+          <li><strong>Piece:</strong> Obra elaborada, com formas, cores, efeitos e mensagem clara.</li>
+          <li><strong>Mural:</strong> Obra extensa que ocupa paredes inteiras.</li>
+        </ul>
+        <h4>🏙️ O Grafite na Cidade</h4>
+        <ul>
+          <li>Traz identidade cultural.</li>
+          <li>Transforma espaços cinzas em locais vivos.</li>
+          <li>É uma forma legítima de arte, reconhecida mundialmente.</li>
+        </ul>
+        <h4>🔥 Misturando Tudo no Labirinto</h4>
+        <p>
+          Cada sala oferece respostas e chaves para que as guildas consigam sair do labirinto, resolvendo os enigmas e conquistando os materiais para sua releitura do grafite.
+        </p>
+        <div id="quiz-sala3"></div>
+      </div>
+    </div>
+    <!-- Quiz Global e Resultado Final -->
+    <div id="resultado-final" class="resultado-final"></div>
   </div>
+  <script>
+    // --- Salas e Enigmas ---
+    const salas = [
+      {
+        btn: document.getElementById('btn-sala1'),
+        conteudo: document.getElementById('sala1-conteudo'),
+        enigma: document.getElementById('enigma-sala1'),
+        input: document.getElementById('input-enigma1'),
+        btnDestravar: document.getElementById('btn-enigma1'),
+        feedback: document.getElementById('feedback-enigma1'),
+        real: document.getElementById('sala1-conteudo-real'),
+        quizId: 'quiz-sala1',
+        respostas: [
+          "cores primarias","cores primárias","˜cores primárias"
+        ],
+        perguntas: [
+          {
+            enunciado: "1️⃣ Quais são as três cores primárias no sistema de pigmento, como usado em tintas e grafites?",
+            alternativas: [
+              "A) Vermelho, Azul e Amarelo",
+              "B) Ciano, Magenta e Amarelo",
+              "C) Preto, Branco e Vermelho",
+              "D) Azul, Verde e Vermelho"
+            ],
+            correta: 1
+          },
+          {
+            enunciado: "2️⃣ A mistura de Ciano e Amarelo resulta em qual cor?",
+            alternativas: [
+              "A) Azul",
+              "B) Roxo",
+              "C) Verde",
+              "D) Marrom"
+            ],
+            correta: 2
+          },
+          {
+            enunciado: "3️⃣ O que acontece quando misturamos Ciano, Magenta e Amarelo em partes iguais?",
+            alternativas: [
+              "A) Forma branco puro",
+              "B) Surge uma cor cinza clara",
+              "C) Resulta em uma cor escura ou preta",
+              "D) Vira vermelho"
+            ],
+            correta: 2
+          },
+          {
+            enunciado: "4️⃣ A mistura de Magenta e Amarelo forma qual cor secundária?",
+            alternativas: [
+              "A) Azul",
+              "B) Vermelho",
+              "C) Verde",
+              "D) Preto"
+            ],
+            correta: 1
+          }
+        ]
+      },
+      {
+        btn: document.getElementById('btn-sala2'),
+        conteudo: document.getElementById('sala2-conteudo'),
+        enigma: document.getElementById('enigma-sala2'),
+        input: document.getElementById('input-enigma2'),
+        btnDestravar: document.getElementById('btn-enigma2'),
+        feedback: document.getElementById('feedback-enigma2'),
+        real: document.getElementById('sala2-conteudo-real'),
+        quizId: 'quiz-sala2',
+        respostas: [
+          "linha","a linha"
+        ],
+        perguntas: [
+          {
+            enunciado: "5️⃣ Qual elemento visual é definido como uma sucessão de pontos?",
+            alternativas: [
+              "A) Volume",
+              "B) Linha",
+              "C) Forma",
+              "D) Textura"
+            ],
+            correta: 1
+          },
+          {
+            enunciado: "6️⃣ Qual elemento visual é responsável por transmitir a sensação de toque (áspero, liso, rugoso)?",
+            alternativas: [
+              "A) Cor",
+              "B) Sombra",
+              "C) Textura",
+              "D) Linha"
+            ],
+            correta: 2
+          },
+          {
+            enunciado: "7️⃣ O que é uma forma orgânica?",
+            alternativas: [
+              "A) Uma forma com linhas retas e ângulos exatos",
+              "B) Uma forma que representa objetos naturais, como nuvens ou folhas",
+              "C) Uma forma matemática precisa",
+              "D) Uma forma feita apenas de linhas curvas"
+            ],
+            correta: 1
+          },
+          {
+            enunciado: "8️⃣ Qual combinação de elementos visuais gera a percepção de profundidade e volume nas obras?",
+            alternativas: [
+              "A) Ponto e linha",
+              "B) Cor e forma",
+              "C) Luz, sombra e espaço",
+              "D) Textura e ponto"
+            ],
+            correta: 2
+          }
+        ]
+      },
+      {
+        btn: document.getElementById('btn-sala3'),
+        conteudo: document.getElementById('sala3-conteudo'),
+        enigma: document.getElementById('enigma-sala3'),
+        input: document.getElementById('input-enigma3'),
+        btnDestravar: document.getElementById('btn-enigma3'),
+        feedback: document.getElementById('feedback-enigma3'),
+        real: document.getElementById('sala3-conteudo-real'),
+        quizId: 'quiz-sala3',
+        respostas: [
+          "grafite","o grafite"
+        ],
+        perguntas: [
+          {
+            enunciado: "9️⃣ Qual é a principal diferença entre pichação e grafite?",
+            alternativas: [
+              "A) Pichação usa spray e grafite usa pincel",
+              "B) Grafite busca estética, mensagem e arte, enquanto pichação é geralmente texto simples e rápido",
+              "C) Pichação é colorida e grafite é preto e branco",
+              "D) Não há diferença"
+            ],
+            correta: 1
+          },
+          {
+            enunciado: "🔟 Como é chamado o estilo de grafite que representa uma assinatura rápida do artista?",
+            alternativas: [
+              "A) Mural",
+              "B) Throw-up",
+              "C) Tag",
+              "D) Piece"
+            ],
+            correta: 2
+          },
+          {
+            enunciado: "1️⃣1️⃣ O grafite começou como forma de expressão em qual contexto?",
+            alternativas: [
+              "A) Nos museus europeus do século XIX",
+              "B) Nos movimentos urbanos de Nova York, como resistência cultural",
+              "C) No Renascimento italiano",
+              "D) Nas pinturas rupestres"
+            ],
+            correta: 1
+          },
+          {
+            enunciado: "1️⃣2️⃣ Qual é a função social do grafite nas cidades?",
+            alternativas: [
+              "A) Apenas decorar",
+              "B) Informar sobre trânsito",
+              "C) Expressar opiniões, transformar espaços e gerar reflexões",
+              "D) Substituir placas de sinalização"
+            ],
+            correta: 2
+          }
+        ]
+      }
+    ];
+
+    let salaAberta = null; // 0,1,2
+    let xpTotal = 0;
+    let quizRespondido = [false, false, false];
+
+    // Função para fechar todas as salas
+    function fecharSalas() {
+      salas.forEach((s, idx) => {
+        s.conteudo.style.display = 'none';
+        s.btn.classList.remove('disabled');
+        if (salaAberta !== null) s.btn.disabled = false;
+      });
+      salaAberta = null;
+    }
+
+    // Abrir sala
+    salas.forEach((s, idx) => {
+      s.btn.addEventListener('click', ()=>{
+        fecharSalas();
+        s.conteudo.style.display = 'block';
+        s.btn.classList.add('disabled');
+        s.btn.disabled = true;
+        salaAberta = idx;
+      });
+    });
+
+    // Enigmas funcionamento
+    salas.forEach((s, idx) => {
+      s.btnDestravar.addEventListener('click', ()=> {
+        tentaDestravarEnigma(idx);
+      });
+      s.input.addEventListener('keyup', (e)=> {
+        if (e.key === "Enter") tentaDestravarEnigma(idx);
+      });
+    });
+
+    function tentaDestravarEnigma(idx) {
+      const s = salas[idx];
+      let resposta = s.input.value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      let correta = s.respostas.some(r=>resposta === r.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
+      s.feedback.innerText = "";
+      if (correta) {
+        s.enigma.style.display = 'none';
+        s.real.style.display = 'block';
+        iniciarQuizSala(idx);
+      } else {
+        s.feedback.innerHTML = '<span class="enigma-feedback">Resposta incorreta! Tente novamente, ou role um D20 para receber uma pista ou penalidade.</span>';
+      }
+    }
+
+    // Quiz de cada sala (4 perguntas cada)
+    function iniciarQuizSala(salaIdx) {
+      const quizDiv = document.getElementById(salas[salaIdx].quizId);
+      quizDiv.innerHTML = ""; // Limpa anterior
+      let perguntas = salas[salaIdx].perguntas;
+      let respostas = [];
+      let perguntaAtual = 0;
+      let quizTravado = false;
+
+      function mostraPergunta() {
+        quizDiv.innerHTML = "";
+        if (perguntaAtual < perguntas.length) {
+          const p = perguntas[perguntaAtual];
+          const qDiv = document.createElement('div');
+          qDiv.className = 'quiz-pergunta active';
+          const prog = document.createElement('div');
+          prog.className = 'quiz-progresso';
+          prog.innerText = `Pergunta ${perguntaAtual+1} de ${perguntas.length}`;
+          qDiv.appendChild(prog);
+          const strong = document.createElement('strong');
+          strong.innerText = p.enunciado;
+          qDiv.appendChild(strong);
+          const ul = document.createElement('ul');
+          ul.className = 'quiz-alternativas';
+          p.alternativas.forEach((alt, aIdx) => {
+            const li = document.createElement('li');
+            li.innerText = alt;
+            li.setAttribute('tabindex', 0);
+            li.addEventListener('click', () => responde(aIdx));
+            li.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') responde(aIdx);
+            });
+            ul.appendChild(li);
+          });
+          qDiv.appendChild(ul);
+          quizDiv.appendChild(qDiv);
+        } else {
+          quizRespondido[salaIdx] = true;
+          let acertos = 0;
+          for(let i=0;i<perguntas.length;i++) if(respostas[i]===perguntas[i].correta) acertos++;
+          xpTotal += acertos;
+          quizDiv.innerHTML = `<div style="color:#39ff14;font-weight:bold;margin-top:16px;">XP conquistado nesta sala: ${acertos}</div>`;
+          // Libera botão próxima sala se existir
+          if (salaIdx+1 < salas.length) {
+            salas[salaIdx+1].btn.disabled = false;
+          } else {
+            mostrarResultadoFinal();
+          }
+        }
+      }
+      function responde(aIdx) {
+        if (quizTravado) return;
+        respostas[perguntaAtual] = aIdx;
+        const ul = quizDiv.querySelector('.quiz-alternativas');
+        Array.from(ul.children).forEach((li, i) => {
+          li.classList.add('selected');
+          li.style.cursor = 'default';
+          li.removeAttribute('tabindex');
+          if (i === perguntas[perguntaAtual].correta) li.classList.add('certa');
+          if (i === aIdx && i !== perguntas[perguntaAtual].correta) li.classList.add('errada');
+        });
+        quizTravado = true;
+        setTimeout(()=>{
+          perguntaAtual++;
+          quizTravado = false;
+          mostraPergunta();
+        }, 600);
+      }
+      mostraPergunta();
+    }
+
+    // Resultado final só quando concluir todas as salas
+    function mostrarResultadoFinal() {
+      if (!quizRespondido.every(x=>x)) return;
+      document.getElementById('resultado-final').style.display = 'block';
+      document.getElementById('resultado-final').innerHTML = `
+        <span style="font-size:2.3em;">🏆</span><br>
+        <strong>XP Total:</strong> ${xpTotal} <span style="font-size:0.9em;">de 12</span><br>
+        <div style="margin-top:12px;">
+          Distribua <strong>${xpTotal} XP</strong> entre a equipe!<br>
+          <span style="font-size:0.99em;color:#f1eaff;">(Cada acerto vale 1 XP. Parabéns por concluir o labirinto!)</span>
+        </div>
+      `;
+    }
+
+    // Só pode abrir uma sala por vez
+    document.addEventListener('click', function(e){
+      // Fecha sala ao clicar fora dela, exceto o botão ou dentro da sala
+      if (salaAberta!==null) {
+        let salaC = salas[salaAberta].conteudo;
+        if (!salaC.contains(e.target) && !salas[salaAberta].btn.contains(e.target)) {
+          fecharSalas();
+        }
+      }
+    });
+    // Impede fechar sala ao clicar dentro dela
+    salas.forEach((s, idx)=> {
+      s.conteudo.addEventListener('click', function(e){ e.stopPropagation(); });
+    });
+
+    // Inicial: só sala 1 habilitada
+    fecharSalas();
+    salas[0].btn.disabled = false;
+    salas[1].btn.disabled = true;
+    salas[2].btn.disabled = true;
+    document.getElementById('resultado-final').style.display = 'none';
+
+  </script>
 </body>
 </html>
